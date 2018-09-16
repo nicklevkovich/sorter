@@ -19,7 +19,7 @@ class Sorter {
   }
 
   toArray() {
-    return this.array.toArray;
+    return this.array;
     // your implementation
   }
 
