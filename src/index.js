@@ -1,6 +1,9 @@
 class Sorter {
   constructor() {
     this.array = [];
+    this.compareFunction = (function(a,b){
+      return (a-b)
+    })
   }
 
   add(element) {
@@ -25,10 +28,20 @@ class Sorter {
 
   sort(indices) {
     // your implementation
-  }
+      var SortedArray=[];
+      for(var i=0;i<indices.length;i++){
+        SortedArray.push(this.array[indices[i]]);
+      }
+      SortedArray.sort(this.compareFunction);
+      for (var i=0; i<SortedArray.length;i++){
+        this.array.splice(indices[i],1,SortedArray[i])
+      }
+
+    }
 
   setComparator(compareFunction) {
     // your implementation
+    this.compareFunction=compareFunction;
   }
 }
 
